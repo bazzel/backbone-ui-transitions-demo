@@ -7,6 +7,8 @@ gem 'rails', '3.2.13'
 
 gem 'sqlite3'
 
+gem 'ember-rails'
+gem 'ember-source', '1.0.0'
 gem 'haml-rails'
 gem 'active_model_serializers'
 

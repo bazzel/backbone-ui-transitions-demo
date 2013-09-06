@@ -14,6 +14,10 @@
 //= require jquery-ui
 //= require jquery_ujs
 //
+//= require handlebars
+//= require ember
+//= require ember-data
+//
 //= require_self
 //
 //= require jss/jss
@@ -32,6 +36,8 @@
 //= require backbone_datalink
 //
 //= require backbone/ui_demo
+//
+//= require ui_demo
 
 window.define = function(factory) {
   try{ delete window.define; } catch(e){ window.define = void 0; } // IE
@@ -39,3 +45,4 @@ window.define = function(factory) {
 };
 window.define.amd = {};
 
+UiDemo = Em.Application.create();
