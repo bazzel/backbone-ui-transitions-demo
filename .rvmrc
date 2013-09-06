@@ -1,1 +1,1 @@
-rvm use --create --install ruby-1.9.3-p392@ui-demo
+rvm use --create --install 2.0.0@ui-demo
