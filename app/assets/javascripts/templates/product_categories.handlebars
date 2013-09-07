@@ -1,0 +1,12 @@
+<section class="categories">
+  <h1>Products</h1>
+  <ul class="categories">
+    {{#each}}
+      <li class="category">
+      <a href="categories/1">
+        <img {{bind-attr src=imageUrl}} height="100" width="100">
+      </a>
+      </li>
+    {{/each}}
+  </ul>
+</section>

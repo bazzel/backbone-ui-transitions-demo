@@ -15,4 +15,4 @@ window.UIDemo =
   Views: {}
 
 $ ->
-  UIDemo.app.initialize()
+  #UIDemo.app.initialize()
