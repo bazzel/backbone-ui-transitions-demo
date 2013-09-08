@@ -2,13 +2,11 @@ UiDemo.ProductCategoriesShowController = Em.ObjectController.extend
   needs: ['product_categories']
   actions:
     toggleOpen: ->
-      if isOpen = @get('isOpen')
+      if isOpen = @get 'isOpen'
+        @doClose()
         @transitionToRoute 'product_categories'
       else
-        @get('controllers.product_categories').markAllAsClosed()
-        @transitionToRoute('product_categories.show', this)
-
-      @set('isOpen', not isOpen)
+        @transitionToRoute 'product_categories.show', this
 
   doClose: ->
-    @set('isOpen', false)
+    @set 'isOpen', false
