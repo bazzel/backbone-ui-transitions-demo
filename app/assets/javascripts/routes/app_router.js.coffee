@@ -8,7 +8,12 @@ UiDemo.Router.map ->
 UiDemo.ProductCategoriesRoute = Em.Route.extend
   model: ->
     UiDemo.ProductCategory.find()
+  actions:
+    toggleOpen: (model) ->
+      if isOpen = model.get('isOpen')
+        @transitionTo 'product_categories'
+      else
+        UiDemo.ProductCategory.markAllAsClosed()
+        @transitionTo 'product_categories.show', model
 
-UiDemo.ProductCategoriesShowRoute = Em.Route.extend
-  setupController: (controller, model) ->
-    UiDemo.ProductCategory.markAsOpen(model)
+      model.set('isOpen', not isOpen)

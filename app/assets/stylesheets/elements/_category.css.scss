@@ -4,6 +4,10 @@ section.products > h1 {
   padding-left: 1em;
 }
 
+li.category {
+  cursor: pointer;
+}
+
 li.open-group {
   .transitions & {
     -webkit-transition: all 600ms;

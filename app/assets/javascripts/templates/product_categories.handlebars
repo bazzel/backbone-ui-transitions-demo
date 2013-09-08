@@ -2,11 +2,9 @@
   <h1>Products</h1>
   <ul class="categories">
     {{#each}}
-    <li {{bind-attr class=':category isOpen:active'}}>
-      {{#link-to 'product_categories.show' this}}
-        <img {{bind-attr src=imageUrl}} height="100" width="100">
-      {{/link-to}}
-      </li>
+    <li {{action 'toggleOpen' this}} {{bind-attr class=':category isOpen:active'}}>
+      <img {{bind-attr src=imageUrl}} height="100" width="100">
+    </li>
     {{/each}}
   </ul>
   {{outlet}}

@@ -1,9 +1,10 @@
 UiDemo.ProductCategory = DS.Model.extend
   name: DS.attr('string')
   imageUrl: DS.attr('string')
+  doClose: ->
+    @set('isOpen', false)
 
 UiDemo.ProductCategory.reopenClass
-  markAsOpen: (model) ->
+  markAllAsClosed: ->
     @find().forEach (item) ->
-      item.set('isOpen', false)
-    model.set('isOpen', true)
+      item.doClose()
