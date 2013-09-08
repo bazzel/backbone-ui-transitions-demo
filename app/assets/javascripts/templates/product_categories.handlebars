@@ -1,12 +1,13 @@
-<section class="categories">
+<section {{bind-attr class=":categories hasActive:open-category"}}>
   <h1>Products</h1>
   <ul class="categories">
     {{#each}}
-      <li class="category">
-      <a href="categories/1">
+    <li {{bind-attr class=':category isOpen:active'}}>
+      {{#link-to 'product_categories.show' this}}
         <img {{bind-attr src=imageUrl}} height="100" width="100">
-      </a>
+      {{/link-to}}
       </li>
     {{/each}}
   </ul>
+  {{outlet}}
 </section>
