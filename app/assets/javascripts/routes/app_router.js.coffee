@@ -11,6 +11,4 @@ UiDemo.ProductCategoriesRoute = Em.Route.extend
 
 UiDemo.ProductCategoriesShowRoute = Em.Route.extend
   setupController: (controller, model) ->
-    UiDemo.ProductCategory.find().forEach (item) ->
-      item.set('isOpen', false)
-    model.set('isOpen', true)
+    UiDemo.ProductCategory.markAsOpen(model)
