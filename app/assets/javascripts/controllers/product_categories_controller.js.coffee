@@ -1,5 +1,5 @@
 UiDemo.ProductCategoriesController = Em.ArrayController.extend
-  itemController: 'product_categories_show'
+  itemController: 'product_category_item'
 
   hasActive: (->
     @any((item) ->

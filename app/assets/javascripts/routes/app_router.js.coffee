@@ -12,4 +12,5 @@ UiDemo.ProductCategoriesRoute = Em.Route.extend
 UiDemo.ProductCategoriesShowRoute = Em.Route.extend
   setupController: (controller, model) ->
     controller.get('controllers.product_categories').markAllAsClosed()
+    controller.set('model', model)
     model.set('isOpen', true)
