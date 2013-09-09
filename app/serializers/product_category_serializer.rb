@@ -1,5 +1,6 @@
 class ProductCategorySerializer < ActiveModel::Serializer
-  self.root = false
+  embed :ids
+
   attributes :id, :name, :image_url
-  attribute :image_url
+  has_many :products
 end
