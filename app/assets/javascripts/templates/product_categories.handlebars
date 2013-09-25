@@ -10,10 +10,10 @@
         <section class="products">
           <h1>{{name}}</h1>
           <ul class="products">
-            {{#each product in products}}
+            {{#each products}}
               <li class="product">
                 <a href="/categories/1/products/1">
-                  <img {{bind-attr src=product.imageUrl}} height="200" width="150">
+                  <img {{bind-attr src=imageUrl}} height="200" width="150">
                 </a>
               </li>
             {{/each}}

@@ -2,8 +2,8 @@ class ProductCategoriesController < ApplicationController
   respond_to :html, :json
 
   def index
-    @product_categories = ProductCategory.all
-    sleep 3
+    @product_categories = ProductCategory.includes(:products)
+    #sleep 3
     respond_to do |format|
       format.html
       format.json { render json: @product_categories }

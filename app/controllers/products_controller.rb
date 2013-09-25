@@ -1,10 +1,11 @@
 class ProductsController < ApplicationController
   respond_to :html, :json
 
-  before_filter :get_resource_collection
+  #before_filter :get_resource_collection
 
   def index
-    @products = @collection.all
+    @products = Product.where(id: params[:ids])
+    #@products = @collection.all
     sleep 3
 
     respond_to do |format|

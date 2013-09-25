@@ -7,7 +7,7 @@ UiDemo.Router.map ->
 
 UiDemo.ProductCategoriesRoute = Em.Route.extend
   model: ->
-    UiDemo.ProductCategory.find()
+    @store.find('product_category')
 
 UiDemo.ProductCategoriesShowRoute = Em.Route.extend
   setupController: (controller, model) ->
