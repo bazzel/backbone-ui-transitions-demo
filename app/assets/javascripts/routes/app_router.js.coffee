@@ -14,3 +14,7 @@ UiDemo.ProductCategoriesShowRoute = Em.Route.extend
     controller.get('controllers.product_categories').markAllAsClosed()
     controller.set('model', model)
     model.set('isOpen', true)
+    model.get('products').then ->
+      # Can this help?
+      # http://stackoverflow.com/questions/13699796/ember-data-loading-hasmany-association-on-demand
+      model.set('productsLoaded', yes)

@@ -9,3 +9,10 @@ UiDemo.ProductCategoryItemController = Em.ObjectController.extend
 
   doClose: ->
     @set 'isOpen', false
+
+  isLoading: (->
+    @get('isOpen') and !@get('productsLoaded')
+  ).property('isOpen', 'productsLoaded')
+  isLoaded: (->
+    @get('isOpen') and @get('productsLoaded')
+  ).property('isOpen', 'productsLoaded')

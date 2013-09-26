@@ -3,9 +3,9 @@ UiDemo.ProductCategoriesController = Em.ArrayController.extend
 
   hasActive: (->
     @any((item) ->
-      item.get('isOpen') is yes
+      item.get('isLoaded') is yes
     )
-  ).property('@each.isOpen')
+  ).property('@each.isLoaded')
 
   markAllAsClosed: ->
     @forEach (item) ->

@@ -2,10 +2,10 @@
   <h1>Products</h1>
   <ul class="categories">
     {{#each}}
-    <li {{action 'toggleOpen' this}} {{bind-attr class=':category isOpen:active'}}>
+    <li {{action 'toggleOpen' this}} {{bind-attr class=':category isLoading:loading isOpen:active'}}>
       <img {{bind-attr src=imageUrl}} height="100" width="100">
     </li>
-    {{#if isOpen}}
+    {{#if isLoaded}}
       <li class='open-group'>
         <section class="products">
           <h1>{{name}}</h1>

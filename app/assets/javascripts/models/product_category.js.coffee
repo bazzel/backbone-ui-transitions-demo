@@ -4,3 +4,5 @@ UiDemo.ProductCategory = DS.Model.extend
   products: DS.hasMany('product',
     async: yes
   )
+  productsLoaded: no
+  isOpen: no
