@@ -16,30 +16,27 @@ UiDemo.ProductCategoriesShowView = Em.View.extend
 
   _positionFolder: ->
     selectedItemIndex = @get('selectedItemIndex')
-    # No, it's a little more complex than this:
     newIndex = @_firstInNextRow(selectedItemIndex)
     # bug 1:
-    # open a category in row 1, then open another in row 2
-    # => now, row 2 is missing images which are moved to row 3...
-    # bug 2:
     # Resizing the browser, should reposition the folder
     # Try http://stackoverflow.com/questions/10843362/how-should-i-bind-to-a-window-function-in-an-ember-view
-    #console.log 'newIndex', newIndex
     parentView = @get('parentView')
-    $li = $(parentView.$('li')[newIndex])
+    $li = $(parentView.$('li.category')[newIndex])
     $li.after @$()
 
   _colCount: ->
     $parentView = @get('parentView').$()
-    console.log $parentView.find('li')
-    ulWidth = $parentView.find('ul').outerWidth()
-    liWidth = $parentView.find('li').outerWidth(true)
+    $ul = $parentView.find('ul')
+    ulWidth = $ul.outerWidth()
+    liWidth = $ul.find('li.category').outerWidth(true)
     Math.floor(ulWidth / liWidth)
 
   _firstInNextRow: (index) ->
-    colCount = @_colCount()
     itemCount = @get('controller.controllers.product_categories.content.length')
-    firstItemNextRowIndex = Math.floor((index+colCount)/colCount)*colCount
+    firstItemNextRowIndex = @_roundToNearest(index, @_colCount())
 
     Math.min(itemCount, firstItemNextRowIndex) - 1
+
+  _roundToNearest: (value, n) ->
+    Math.floor((value+n)/n)*n
 
