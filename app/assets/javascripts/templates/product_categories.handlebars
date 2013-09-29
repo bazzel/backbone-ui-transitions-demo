@@ -1,27 +1,11 @@
 <section {{bind-attr class=":categories hasActive:open-category"}}>
   <h1>Products</h1>
   <ul class="categories">
-    {{#each}}
+  {{#each}}
     <li {{action 'toggleOpen' this}} {{bind-attr class=':category isLoading:loading isOpen:active'}}>
       <img {{bind-attr src=imageUrl}} height="100" width="100">
     </li>
-    {{#if isLoaded}}
-      <li class='open-group'>
-        <section class="products">
-          <h1>{{name}}</h1>
-          <ul class="products">
-            {{#each products}}
-              <li class="product">
-                <a href="/categories/1/products/1">
-                  <img {{bind-attr src=imageUrl}} height="200" width="150">
-                </a>
-              </li>
-            {{/each}}
-          </ul>
-        </section>
-      </li>
-    {{/if}}
-    {{/each}}
+  {{/each}}
   </ul>
   {{outlet}}
 </section>
