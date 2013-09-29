@@ -1,15 +1,9 @@
 UiDemo.ProductCategoriesShowView = Em.View.extend
   didInsertElement: ->
-    selectedItemIndex = @get('selectedItemIndex')
-    parentView = @get('parentView')
-    $li = $(parentView.$('li')[selectedItemIndex])
-    $li.after @$()
+    @_positionFolder()
 
-  positionFolder: (->
-    selectedItemIndex = @get('selectedItemIndex')
-    parentView = @get('parentView')
-    $li = $(parentView.$('li')[selectedItemIndex])
-    $li.after @$()
+  didChangeSelectedItem: (->
+    @_positionFolder()
   ).observes('selectedItemIndex')
 
   selectedItemIndex: (->
@@ -19,3 +13,10 @@ UiDemo.ProductCategoriesShowView = Em.View.extend
     )
     pcs.indexOf(pc)
   ).property('controller.id')
+
+  _positionFolder: ->
+    selectedItemIndex = @get('selectedItemIndex')
+    parentView = @get('parentView')
+    $li = $(parentView.$('li')[selectedItemIndex])
+    $li.after @$()
+
