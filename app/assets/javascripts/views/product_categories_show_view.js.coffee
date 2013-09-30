@@ -22,14 +22,21 @@ UiDemo.ProductCategoriesShowView = Em.View.extend
     # Try http://stackoverflow.com/questions/10843362/how-should-i-bind-to-a-window-function-in-an-ember-view
     parentView = @get('parentView')
     $li = $(parentView.$('li.category')[newIndex])
+    @_moveArrow()
     $li.after @$()
 
+  _moveArrow: ->
+    left = @_liWidth()*@_colIndex() + 35
+    jss('li.open-group::after',
+      'margin-left': "#{left}px"
+    )
+
+  _colIndex: ->
+    @get('selectedItemIndex') % @_colCount()
+
   _colCount: ->
-    $parentView = @get('parentView').$()
-    $ul = $parentView.find('ul')
-    ulWidth = $ul.outerWidth()
-    liWidth = $ul.find('li.category').outerWidth(true)
-    Math.floor(ulWidth / liWidth)
+    ulWidth = @_$ul().outerWidth()
+    Math.floor(ulWidth / @_liWidth())
 
   _firstInNextRow: (index) ->
     itemCount = @get('controller.controllers.product_categories.content.length')
@@ -40,3 +47,11 @@ UiDemo.ProductCategoriesShowView = Em.View.extend
   _roundToNearest: (value, n) ->
     Math.floor((value+n)/n)*n
 
+  _$parentView: ->
+    @get('parentView').$()
+
+  _$ul: ->
+    @_$parentView().find('ul')
+
+  _liWidth: ->
+    @_$ul().find('li.category').outerWidth(true)
